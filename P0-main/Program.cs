@@ -6,17 +6,19 @@ class Program
 {
     static void Main(string[] args)
     {   
+        Validator validator = new();
+        Menu menu = new Menu(validator);
         //Run the program
-        Menu.Greeting();
+        menu.Greeting();
 
         //Create a new instance of the phonebook
         List<Contact> phonebook = new();
         Data.Deserialize(ref phonebook);
 
         //phonebook.Add(new Contact("Katherine", "919-123-4567", "kathy345@gmail.com"));
-        Menu.displayPhoneBookCreation();
+        menu.displayPhoneBookCreation();
 
-        int selection = Menu.getUserOption();
+        int selection = menu.getUserOption();
 
         while(selection != 9){
 
@@ -37,8 +39,8 @@ class Program
                 Console.WriteLine("Invalid number");
                 break;
         }
-        Menu.displayMenu();
-        selection = Menu.getUserOption();
+        menu.displayMenu();
+        selection = menu.getUserOption();
         
     }
     Data.Serialize(phonebook);
