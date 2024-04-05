@@ -1,12 +1,17 @@
+using p0;
+
 public class Validator
 {
-    public static string validateName(string name){
+    public static string validateName(string name, List<Contact> contactList){
         if(name.Equals("") || name.Equals(null)){
             return "Name can't be blank!";
         }
-        else{
-            return "";
+        foreach(Contact contact in contactList){
+            if(contact.GetName().Equals(name)){
+                return "Name already exists!";
+            }
         }
+            return "";
     }
 
     public static string valideEmail(string email){
@@ -22,4 +27,5 @@ public class Validator
         }
         return "";
     }
+
 }

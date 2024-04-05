@@ -66,15 +66,15 @@ static class Menu
     }
 
     //Get user information for a contact
-    public static Contact getContactInformation(){
+    public static Contact getContactInformation(List<Contact> contactList){
     
         // Get input from the user
 
     Console.WriteLine("Type name of the contact: ");
     string name = Console.ReadLine();
-    while(!Validator.validateName(name).Equals("")){
+    while(!Validator.validateName(name, contactList).Equals("")){
 
-        Console.WriteLine(Validator.validateName(name));      
+        Console.WriteLine(Validator.validateName(name, contactList));      
         Console.WriteLine("Type name of the contact: ");
         name = Console.ReadLine();
     }
